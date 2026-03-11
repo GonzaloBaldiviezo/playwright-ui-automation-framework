@@ -1,11 +1,11 @@
 # Playwright UI Automation Framework
 
 This is a **UI automation framework** using **Playwright** and **TypeScript**, built with Page Object Model and centralized test data.  
-It demonstrates **professional QA automation practices** for a portfolio.
+It demonstrates **QA automation practices** for a portfolio.
 
 ---
 
-## 🧪 What’s implemented so far
+## 🧪 What’s implemented
 
 - **Login tests** (positive and negative scenarios) against [Sauce Demo](https://www.saucedemo.com)
 - **Page Object Model** applied (`pages/login.page.ts`)
