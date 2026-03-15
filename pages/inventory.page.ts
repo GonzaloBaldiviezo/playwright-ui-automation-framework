@@ -4,11 +4,17 @@ export class InventoryPage {
   readonly page: Page;
   readonly backpackAddButton: Locator;
   readonly shoppingCart: Locator;
+  readonly menuButton: Locator;
+  readonly logoutLink: Locator;
+  readonly bikeLightAddButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.backpackAddButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
     this.shoppingCart = page.locator('[data-test="shopping-cart-link"]');
+    this.menuButton = page.locator('#react-burger-menu-btn');
+    this.logoutLink = page.locator('#logout_sidebar_link');
+    this.bikeLightAddButton = page.locator('#add-to-cart-sauce-labs-bike-light');
   }
 
   async addBackpackToCart() {
@@ -17,5 +23,14 @@ export class InventoryPage {
 
   async openCart() {
     await this.shoppingCart.click();
+  }
+
+  async logout() {
+    await this.menuButton.click();
+    await this.logoutLink.click();
+  }
+
+  async addBikeLightToCart() {
+    await this.bikeLightAddButton.click();
   }
 }
