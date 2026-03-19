@@ -5,7 +5,7 @@ import { CartPage } from '../../pages/cart.page';
 import { CheckoutPage } from '../../pages/checkout.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Checkout validation tests', () => {
+test.describe('Complete purchase flow', () => {
 
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
@@ -22,22 +22,37 @@ test.describe('Checkout validation tests', () => {
     await loginPage.login(users.standard.username, users.standard.password);
   });
 
-  test('user cannot continue checkout with empty information', async () => {
-    await test.step('Add product to cart', async () => {
+  test('standard user can complete a purchase successfully', async () => {
+    await test.step('Add products to cart', async () => {
       await inventoryPage.addBackpackToCart();
+      await inventoryPage.addBikeLightToCart();
     });
 
-    await test.step('Open cart and proceed to checkout', async () => {
+    await test.step('Open cart and verify products', async () => {
       await inventoryPage.openCart();
+      await expect(cartPage.cartItems).toHaveCount(2);
+    });
+
+    await test.step('Proceed to checkout', async () => {
       await cartPage.checkout();
     });
 
-    await test.step('Attempt to continue checkout with empty form', async () => {
-      await checkoutPage.continueCheckout();
+    await test.step('Fill checkout information', async () => {
+      await checkoutPage.completeCheckout(
+        'John',
+        'Doe',
+        '12345'
+      );
     });
 
-    await test.step('Verify error message is displayed', async () => {
-      await expect(checkoutPage.errorMessage).toBeVisible();
+    await test.step('Finish purchase', async () => {
+      await checkoutPage.finishCheckout();
+    });
+
+    await test.step('Verify order confirmation', async () => {
+      await expect(checkoutPage.completeHeader).toHaveText(
+        'Thank you for your order!'
+      );
     });
   });
 

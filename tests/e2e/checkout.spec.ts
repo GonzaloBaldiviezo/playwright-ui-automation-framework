@@ -7,35 +7,39 @@ import { users } from '../../fixtures/users';
 
 test.describe('Checkout flow', () => {
 
-  test('standard user can complete a purchase', async ({ page }) => {
+  let loginPage: LoginPage;
+  let inventoryPage: InventoryPage;
+  let cartPage: CartPage;
+  let checkoutPage: CheckoutPage;
 
-    const loginPage = new LoginPage(page);
-    const inventoryPage = new InventoryPage(page);
-    const cartPage = new CartPage(page);
-    const checkoutPage = new CheckoutPage(page);
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    inventoryPage = new InventoryPage(page);
+    cartPage = new CartPage(page);
+    checkoutPage = new CheckoutPage(page);
 
-    await test.step('Login as standard user', async () => {
-      await loginPage.goto();
-      await loginPage.login(users.standard.username, users.standard.password);
-    });
+    // Login as standard user
+    await loginPage.goto();
+    await loginPage.login(users.standard.username, users.standard.password);
 
-    await test.step('Add backpack to cart', async () => {
-      await inventoryPage.addBackpackToCart();
-      await inventoryPage.openCart();
-    });
+    // Add product to cart and proceed to checkout
+    await inventoryPage.addBackpackToCart();
+    await inventoryPage.openCart();
+    await cartPage.checkout();
+  });
 
-    await test.step('Proceed to checkout', async () => {
-      await cartPage.checkout();
-    });
-
+  test('standard user can complete a purchase', async () => {
     await test.step('Fill checkout info and complete purchase', async () => {
       await checkoutPage.completeCheckout('John', 'Doe', '12345');
+    });
+
+    await test.step('Finish checkout', async () => {
+      await checkoutPage.finishCheckout();
     });
 
     await test.step('Verify order completion', async () => {
       await expect(checkoutPage.confirmationMessage).toBeVisible();
     });
-
   });
 
 });

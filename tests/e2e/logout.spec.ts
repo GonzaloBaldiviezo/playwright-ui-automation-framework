@@ -5,15 +5,18 @@ import { users } from '../../fixtures/users';
 
 test.describe('Logout tests', () => {
 
+  let loginPage: LoginPage;
+  let inventoryPage: InventoryPage;
+
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    inventoryPage = new InventoryPage(page);
+
+    await loginPage.goto();
+    await loginPage.login(users.standard.username, users.standard.password);
+  });
+
   test('standard user can logout successfully', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    const inventoryPage = new InventoryPage(page);
-
-    await test.step('Login as standard user', async () => {
-      await loginPage.goto();
-      await loginPage.login(users.standard.username, users.standard.password);
-    });
-
     await test.step('Verify inventory page is visible', async () => {
       await expect(page).toHaveURL(/inventory/);
     });

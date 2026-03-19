@@ -9,6 +9,7 @@ export class CheckoutPage {
   readonly finishButton: Locator;
   readonly confirmationMessage: Locator;
   readonly errorMessage: Locator;
+  readonly completeHeader: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -20,6 +21,7 @@ export class CheckoutPage {
     this.finishButton = page.locator('[data-test="finish"]');
     this.confirmationMessage = page.locator('[data-test="complete-header"]');
     this.errorMessage = page.locator('[data-test="error"]');
+    this.completeHeader = page.locator('.complete-header');
   }
 
   async completeCheckout(first: string, last: string, zip: string) {
@@ -28,10 +30,13 @@ export class CheckoutPage {
     await this.postalCode.fill(zip);
 
     await this.continueButton.click();
-    await this.finishButton.click();
   }
 
   async continueCheckout() {
     await this.continueButton.click();
+  }
+
+  async finishCheckout() {
+    await this.finishButton.click();
   }
 }

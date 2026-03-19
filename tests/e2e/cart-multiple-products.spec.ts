@@ -6,16 +6,20 @@ import { users } from '../../fixtures/users';
 
 test.describe('Cart multiple products tests', () => {
 
-  test('standard user can add multiple products to cart', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    const inventoryPage = new InventoryPage(page);
-    const cartPage = new CartPage(page);
+  let loginPage: LoginPage;
+  let inventoryPage: InventoryPage;
+  let cartPage: CartPage;
 
-    await test.step('Login as standard user', async () => {
-      await loginPage.goto();
-      await loginPage.login(users.standard.username, users.standard.password);
-    });
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    inventoryPage = new InventoryPage(page);
+    cartPage = new CartPage(page);
 
+    await loginPage.goto();
+    await loginPage.login(users.standard.username, users.standard.password);
+  });
+
+  test('standard user can add multiple products to cart', async () => {
     await test.step('Add backpack to cart', async () => {
       await inventoryPage.addBackpackToCart();
     });
