@@ -32,6 +32,8 @@ export default defineConfig({
     video: 'retain-on-failure',
 
     trace: 'retain-on-failure',
+
+    viewport: { width: 1920, height: 1080 },
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
   },
