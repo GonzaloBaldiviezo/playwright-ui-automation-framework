@@ -1,7 +1,6 @@
 # Playwright UI Automation Framework
 
-This is a **comprehensive UI automation framework** using **Playwright** and **TypeScript**, built with Page Object Model, centralized test data, and visual regression testing.  
-It demonstrates **advanced QA automation practices** for a portfolio.
+This is a **comprehensive UI automation framework** using **Playwright** and **TypeScript**, built with Page Object Model, centralized test data, and visual regression testing.
 
 ---
 
@@ -116,7 +115,6 @@ This framework includes visual regression tests using Playwright's screenshot co
 - **Screenshots on failure** automatically captured
 - **Video recording** on failure
 - **Trace collection** on failure
-- **macOS .DS_Store files** ignored via .gitignore
 
 ---
 
