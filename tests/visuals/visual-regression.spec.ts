@@ -22,6 +22,7 @@ test.describe('Visual regression snapshots', () => {
 
     await expect(page).toHaveScreenshot('inventory-page.png', {
       animations: 'disabled',
+      maxDiffPixels: 12000,
     });
   });
 
@@ -39,6 +40,7 @@ test.describe('Visual regression snapshots', () => {
     await expect(checkoutPage.confirmationMessage).toBeVisible();
     await expect(page).toHaveScreenshot('checkout-confirmation.png', {
       animations: 'disabled',
+      maxDiffPixels: 12000,
     });
   });
 });

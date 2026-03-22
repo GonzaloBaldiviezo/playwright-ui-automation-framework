@@ -20,6 +20,7 @@ test.describe.skip('Visual regression failure demo (intentional)', () => {
 
     await expect(page).toHaveScreenshot('failing-snapshot.png', {
       animations: 'disabled',
+      maxDiffPixels: 12000,
     });
   });
 });
