@@ -1,6 +1,6 @@
 # Playwright UI Automation Framework
 
-This is a **comprehensive UI automation framework** using **Playwright** and **TypeScript**, built with Page Object Model, centralized test data, and visual regression testing.
+This is a **comprehensive UI automation framework** using **Playwright** and **TypeScript**, built with Page Object Model, centralized test data, visual regression testing and CI/CD integration.
 
 ---
 
@@ -19,11 +19,26 @@ This is a **comprehensive UI automation framework** using **Playwright** and **T
 
 ---
 
+## 🔁 CI/CD Integration
+
+This project includes **CI/CD automation** to ensure code quality and test reliability on every change.
+
+- **Automated test execution** on every push and pull request
+- **Cross-browser testing** in CI environment (Chromium, Firefox, WebKit)
+- **HTML report generation** as build artifact
+- **Failure debugging support** with screenshots, videos, and traces
+- Ensures fast feedback loop for developers and QA
+
+---
+
 ## 🗂 Project Structure
 
 ```text
 playwright-ui-automation-framework
 │
+├── .github
+│   └── workflows
+│       └── playwright.yml
 ├── pages
 │   ├── login.page.ts
 │   ├── inventory.page.ts
@@ -104,6 +119,25 @@ This framework includes visual regression tests using Playwright's screenshot co
 - **Automatic diff detection** when UI changes
 - **Intentional failure demo** to showcase report capabilities
 - **1920x1080 viewport** for consistent screenshots across browsers
+
+---
+
+## 🏷 Test Tagging
+
+Tests are tagged to allow flexible execution depending on context:
+
+- ```@visual-regression``` → visual regression tests
+- ```@e2e``` → full test coverage
+- ```@failing-demo``` → tests expected to fail
+
+# Run e2e tests only
+```npx playwright test --grep @e2e```
+
+# Run visual suite
+```npx playwright test --grep @visual-regression```
+
+# Run failing tests
+```npx playwright test --grep @failing-demo```
 
 ---
 
