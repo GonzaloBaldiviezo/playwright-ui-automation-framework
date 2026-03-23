@@ -130,13 +130,13 @@ Tests are tagged to allow flexible execution depending on context:
 - ```@e2e``` → full test coverage
 - ```@failing-demo``` → tests expected to fail
 
-# Run e2e tests only
+### Run e2e tests only
 ```npx playwright test --grep @e2e```
 
-# Run visual suite
+### Run visual suite
 ```npx playwright test --grep @visual-regression```
 
-# Run failing tests
+### Run failing tests
 ```npx playwright test --grep @failing-demo```
 
 ---
