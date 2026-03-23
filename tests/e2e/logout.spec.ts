@@ -3,7 +3,7 @@ import { LoginPage } from '../../pages/login.page';
 import { InventoryPage } from '../../pages/inventory.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Logout tests', () => {
+test.describe('Logout tests', { tag: ['@e2e'] }, () => {
 
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;

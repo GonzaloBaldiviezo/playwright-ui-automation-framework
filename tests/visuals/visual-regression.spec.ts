@@ -5,7 +5,7 @@ import { CartPage } from '../../pages/cart.page';
 import { CheckoutPage } from '../../pages/checkout.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Visual regression snapshots', () => {
+test.describe('Visual regression snapshots', { tag: ['@visual-regression'] }, () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
 

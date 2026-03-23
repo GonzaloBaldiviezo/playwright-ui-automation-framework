@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/login.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Login tests', () => {
+test.describe('Login tests', { tag: ['@e2e'] }, () => {
 
   test('standard user can login successfully', async ({ page }) => {
     const loginPage = new LoginPage(page);

@@ -4,7 +4,7 @@ import { InventoryPage } from '../../pages/inventory.page';
 import { CartPage } from '../../pages/cart.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Cart remove product tests', () => {
+test.describe('Cart remove product tests', { tag: ['@e2e'] }, () => {
 
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;

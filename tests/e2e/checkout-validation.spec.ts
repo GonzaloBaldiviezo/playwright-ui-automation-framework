@@ -5,7 +5,7 @@ import { CartPage } from '../../pages/cart.page';
 import { CheckoutPage } from '../../pages/checkout.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Checkout validation tests', () => {
+test.describe('Checkout validation tests', { tag: ['@e2e'] }, () => {
 
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;

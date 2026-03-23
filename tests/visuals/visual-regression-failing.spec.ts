@@ -3,7 +3,7 @@ import { LoginPage } from '../../pages/login.page';
 import { InventoryPage } from '../../pages/inventory.page';
 import { users } from '../../fixtures/users';
 
-test.describe('Visual regression failure demo (intentional)', { tag: '@failing-demo' }, () => {
+test.describe('Visual regression failure demo (intentional)', { tag: ['@failing-demo', '@visual-regression'] }, () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
 
