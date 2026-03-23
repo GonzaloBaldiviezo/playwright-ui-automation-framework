@@ -24,7 +24,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run tests
-        run: npx playwright test --grep-invert @failing-demo
+        run: npx playwright test --grep-invert @failing-demo --workers=2
 
       - name: Upload report
         if: always()
