@@ -1,5 +1,10 @@
 # Playwright UI Automation Framework
 
+[![Playwright Tests](https://github.com/GonzaloBaldiviezo/playwright-ui-automation-framework/actions/workflows/playwright.yml/badge.svg)](https://github.com/GonzaloBaldiviezo/playwright-ui-automation-framework/actions/workflows/playwright.yml)
+![Playwright](https://img.shields.io/badge/Playwright-E2E%20%26%20Visual%20Testing-2EAD33?logo=playwright&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?logo=typescript&logoColor=white)
+![Browsers](https://img.shields.io/badge/Browsers-Chromium%20%7C%20Firefox%20%7C%20WebKit-1F6FEB)
+
 This is a **comprehensive UI automation framework** using **Playwright** and **TypeScript**, built with Page Object Model, centralized test data, visual regression testing and CI/CD integration.
 
 ---
